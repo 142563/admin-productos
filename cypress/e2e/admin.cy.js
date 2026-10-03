@@ -8,7 +8,7 @@ describe("Admin de Productos", () => {
 
   function entrar() {
     cy.get("#usuario").type("admin")
-    cy.get("#clave").type("1234")
+    cy.get("#clave").type("1111")
     cy.get("#btn-login").click()
   }
 
