@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-logout").addEventListener("click", logout);
   document.getElementById("btn-guardar").addEventListener("click", guardarProducto);
   cargarProductos();
+  if (localStorage.getItem("sesion") === "activa") {
+    document.getElementById("login").classList.add("oculto")
+    document.getElementById("admin").classList.remove("oculto")
+  }
 });
 
 /* ---------- LOGIN ---------- */
@@ -16,6 +20,7 @@ function login() {
   if (u === "admin" && c === "1234") {           // login de demostracion
     document.getElementById("login").classList.add("oculto");
     document.getElementById("admin").classList.remove("oculto");
+    localStorage.setItem("sesion", "activa")   // recuerda que inicio sesion
     msg.textContent = "";
     render();
   } else {
